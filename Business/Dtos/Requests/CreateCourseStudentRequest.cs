@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Requests;
 
-public class CreateCouseStudentRequest
+public class CreateCourseStudentRequest
 {
     public Guid CourseId { get; set; }
     public Guid StudentId { get; set; }
