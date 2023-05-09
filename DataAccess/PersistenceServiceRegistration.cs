@@ -23,6 +23,7 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IstudentDal, EfStudentDal>()
             .AddScoped<IInstructorDal, EfInstructorDal>()
             .AddScoped<ICourseDal, EfCourseDal>()
+            .AddScoped<ICourseStudentDal, EfCourseStudentDal>()
             ;
 
         return services;
