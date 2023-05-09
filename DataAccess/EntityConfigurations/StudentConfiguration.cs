@@ -14,16 +14,16 @@ public class StudentConfiguration : IEntityTypeConfiguration<Student>
     public void Configure(EntityTypeBuilder<Student> builder)
     {
         builder.ToTable("Students").HasKey(u => u.Id);
-        builder.Property(u=>u.Id).HasColumnName("Id").IsRequired();
-        builder.Property(u=>u.Firstname).HasColumnName("Firstname").IsRequired();
-        builder.Property(u=>u.Lastname).HasColumnName("Lastname").IsRequired();
-        builder.Property(u=>u.StundentNumber).HasColumnName("StundentNumber").IsRequired();
-        builder.Property(u => u.CreatedDate).HasColumnName("CreatedDate");
-        builder.Property(u => u.UpdatedDate).HasColumnName("UpdatedDate");
-        builder.Property(u => u.DeletedDate).HasColumnName("DeletedDate");
-        builder.Property(u => u.NationalityId).HasColumnName("NationalityId");
-        builder.Property(u => u.Status).HasColumnName("Status").IsRequired();
-        builder.Property(u => u.BirthDate).HasColumnName("BirthDate").IsRequired();
+        builder.Property(u=> u.Id).HasColumnName("Id").IsRequired();
+        builder.Property(u=> u.Firstname).HasColumnName("Firstname").IsRequired();
+        builder.Property(u=> u.Lastname).HasColumnName("Lastname").IsRequired();
+        builder.Property(u=> u.StundentNumber).HasColumnName("StundentNumber").IsRequired();
+        builder.Property(u=> u.CreatedDate).HasColumnName("CreatedDate");
+        builder.Property(u=> u.UpdatedDate).HasColumnName("UpdatedDate");
+        builder.Property(u=> u.DeletedDate).HasColumnName("DeletedDate");
+        builder.Property(u=> u.NationalityId).HasColumnName("NationalityId");
+        builder.Property(u=> u.Status).HasColumnName("Status").IsRequired();
+        builder.Property(u=> u.BirthDate).HasColumnName("BirthDate").IsRequired();
 
         builder.HasMany(u => u.CourseStudents);
 
