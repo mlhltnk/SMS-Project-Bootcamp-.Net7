@@ -25,7 +25,8 @@ public class StudentConfiguration : IEntityTypeConfiguration<Student>
         builder.Property(u => u.Status).HasColumnName("Status").IsRequired();
         builder.Property(u => u.BirthDate).HasColumnName("BirthDate").IsRequired();
 
-        builder.HasKey(u => u.Id);
+        builder.HasMany(u => u.CourseStudents);
+
         builder.HasQueryFilter(u=>!u.DeletedDate.HasValue);  //deleteddate değeri varsa onu default olarak querylerde getirme
 
 

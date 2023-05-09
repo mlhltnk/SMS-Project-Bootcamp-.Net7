@@ -25,7 +25,7 @@ public class InstructorConfiguration : IEntityTypeConfiguration<Instructor>
         builder.Property(t => t.DeletedDate).HasColumnName("DeletedDate");
         builder.Property(t => t.Status).HasColumnName("Status").IsRequired();
 
-        builder.HasKey(t => t.Id);
+        
         builder.HasQueryFilter(t=>!t.DeletedDate.HasValue);
 
     }

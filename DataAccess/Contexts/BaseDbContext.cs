@@ -17,6 +17,8 @@ namespace DataAccess.Contexts
 
         public DbSet<Instructor> Instructors { get; set; }
 
+        public DbSet<Course> Courses { get; set; }
+
         public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration):base(dbContextOptions)
         {
             Configuration = configuration;
