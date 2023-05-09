@@ -29,7 +29,7 @@ public class Student: Entity<Guid>
         string lastName, DateTime BirtDate, bool status) : this()
     {
        Id = id;
-        StundentNumber = studentNumber;
+        StudentNumber = studentNumber;
         NationalityId = nationalityId;
         Firstname = firstName;
         Lastname = lastName;

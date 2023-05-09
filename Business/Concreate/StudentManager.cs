@@ -23,7 +23,7 @@ namespace Business.Concreate
         {
             Student student = new Student();
             //todo : regex yapılacak
-            student.StundentNumber = "20231234567";
+            student.StudentNumber = "20231234567";
             student.Firstname = createStudentRequest.Firstname;
             student.Lastname = createStudentRequest.Lastname;
             student.BirthDate = createStudentRequest.BirthDate;
