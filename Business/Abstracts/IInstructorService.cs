@@ -9,6 +9,5 @@ namespace Business.Abstracts;
 
 public interface IInstructorService
 {
-
     Task Add(CreateInstructorRequest createInstructorRequest);
 }
