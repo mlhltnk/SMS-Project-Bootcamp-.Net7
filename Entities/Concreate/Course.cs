@@ -12,9 +12,7 @@ public class Course:Entity<Guid>
     public string Name { get; set; }
     public string Shortname { get; set; }
     public int Credit { get; set; }
-
     public ICollection<CourseStudent> CourseStudents { get; set; }
-
     public Course()
     {
         

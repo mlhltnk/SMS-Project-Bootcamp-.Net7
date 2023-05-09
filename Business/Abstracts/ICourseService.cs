@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstracts;
 
-public interface IInstructorService
+public interface ICourseService
 {
-    Task Add(CreateInstructorRequest createInstructorRequest);
+    Task Add(CreateCourseRequest createCourseRequest);
 }

@@ -13,17 +13,17 @@ public class CourseStudentConfiguration: IEntityTypeConfiguration<CourseStudent>
 {
     public void Configure(EntityTypeBuilder<CourseStudent> builder)
     {
-        builder.ToTable("CourseStudents").HasKey(t => t.Id);
-        builder.Property(t => t.Id).HasColumnName("Id").IsRequired();
-        builder.Property(t => t.StudentId).HasColumnName("StudentId").IsRequired();
-        builder.Property(t => t.CourseId).HasColumnName("CourseId").IsRequired();
+        builder.ToTable("CourseStudents").HasKey(u => u.Id);
+        builder.Property(u => u.Id).HasColumnName("Id").IsRequired();
+        builder.Property(u => u.StudentId).HasColumnName("StudentId").IsRequired();
+        builder.Property(u => u.CourseId).HasColumnName("CourseId").IsRequired();
 
-        builder.Property(t => t.CreatedDate).HasColumnName("CreatedDate").IsRequired();
-        builder.Property(t => t.UpdatedDate).HasColumnName("UpdatedDate");
-        builder.Property(t => t.DeletedDate).HasColumnName("DeletedDate");
+        builder.Property(u => u.CreatedDate).HasColumnName("CreatedDate").IsRequired();
+        builder.Property(u => u.UpdatedDate).HasColumnName("UpdatedDate");
+        builder.Property(u => u.DeletedDate).HasColumnName("DeletedDate");
 
-        builder.HasOne(t => t.Student);
-        builder.HasOne(t => t.Course);
+        builder.HasOne(u => u.Student);
+        builder.HasOne(u => u.Course);
 
 
         builder.HasQueryFilter(t => !t.DeletedDate.HasValue);

@@ -14,7 +14,10 @@ public static class BusinessServiceRegistration
     public static IServiceCollection AddBusinessService(this IServiceCollection services)
     {
         services.AddScoped<IStudentService, StudentManager>()
-            .AddScoped<IInstructorService, InstructorManager>();
+            .AddScoped<IInstructorService, InstructorManager>()
+            .AddScoped<ICourseService, CourseManager>()
+            .AddScoped<ICourseStudentService, CourseStudentManager>()
+            ;
         
         return services;
     }
