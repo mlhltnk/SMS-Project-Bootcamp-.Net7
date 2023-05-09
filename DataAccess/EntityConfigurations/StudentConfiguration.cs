@@ -17,7 +17,8 @@ public class StudentConfiguration : IEntityTypeConfiguration<Student>
         builder.Property(u=> u.Id).HasColumnName("Id").IsRequired();
         builder.Property(u=> u.Firstname).HasColumnName("Firstname").IsRequired();
         builder.Property(u=> u.Lastname).HasColumnName("Lastname").IsRequired();
-        builder.Property(u=> u.StundentNumber).HasColumnName("StundentNumber").IsRequired();
+        builder.Property(u=> u.StudentNumber).HasColumnName("StudentNumber").IsRequired();
+
         builder.Property(u=> u.CreatedDate).HasColumnName("CreatedDate");
         builder.Property(u=> u.UpdatedDate).HasColumnName("UpdatedDate");
         builder.Property(u=> u.DeletedDate).HasColumnName("DeletedDate");

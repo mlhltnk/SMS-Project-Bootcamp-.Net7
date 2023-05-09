@@ -16,6 +16,7 @@ namespace API.Controllers
             this.courseStudentService = courseStudentService;
         }
 
+        [HttpPost]
         public async Task<IActionResult> Add([FromBody] CreateCourseStudentRequest createCourseStudentRequest)
         {
             await courseStudentService.Add(createCourseStudentRequest);
