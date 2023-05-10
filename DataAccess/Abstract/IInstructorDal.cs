@@ -1,4 +1,5 @@
-﻿using Core.Persistens;
+﻿using Core.Paging;
+using Core.Persistens;
 using Entities.Concreate;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract;
 
-public interface IInstructorDal: IAsyncRepository<Instructor,Guid>,IRepository<Instructor,Guid>
+public interface IInstructorDal : IAsyncRepository<Instructor, Guid>, IRepository<Instructor, Guid>
 
 {
-
-
+   
 }

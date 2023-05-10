@@ -1,4 +1,7 @@
+using Autofac.Extensions.DependencyInjection;
+using Autofac;
 using Business;
+using Business.DependencyResolvers;
 using DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +17,8 @@ builder.Services.AddPersistenceService(builder.Configuration);
 
 builder.Services.AddBusinessService();
 
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(builder => builder.RegisterModule(new AutofacBusinessModule()));
 
 var app = builder.Build();
 

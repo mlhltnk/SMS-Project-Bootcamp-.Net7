@@ -1,11 +1,11 @@
 ﻿using Business.Abstracts;
 using Business.Concreate;
-using DataAccess.Abstract;
-using DataAccess.Concrete;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,9 +17,13 @@ public static class BusinessServiceRegistration
     {
         services.AddScoped<IStudentService, StudentManager>()
             .AddScoped<IInstructorService, InstructorManager>()
-            .AddScoped<ICourseDal, EfCourseDal>();
-        
-        
+            .AddScoped<ICourseService, CourseManager>()
+            .AddScoped<ICourseStudentService, CourseStudentManager>()
+            ;
+
+        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
         return services;
     }
 }

@@ -184,10 +184,10 @@ namespace DataAccess.Migrations
                         .HasColumnType("bit")
                         .HasColumnName("Status");
 
-                    b.Property<string>("StundentNumber")
+                    b.Property<string>("StudentNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
-                        .HasColumnName("StundentNumber");
+                        .HasColumnName("StudentNumber");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")

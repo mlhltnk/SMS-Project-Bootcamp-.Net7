@@ -1,5 +1,6 @@
 ﻿using Business.Abstracts;
 using Business.Dtos.Requests;
+using Business.Dtos.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,21 +10,27 @@ namespace API.Controllers
     [ApiController]
     public class CoursesController : ControllerBase
     {
-        
 
-            private ICourseService _courseService;
+        private ICourseService courseService;
 
-            public CoursesController(ICourseService courseService)
-            {
-                _courseService = courseService;
-            }
 
-            [HttpPost]
-            public async Task<IActionResult> Add([FromBody] CreateCourseRequest createdCourseRequest)
-            {
-                await _courseService.Add(createdCourseRequest);
-                return Ok();
-            }
+        public CoursesController(ICourseService courseService)
+        {
+            this.courseService = courseService;
         }
-    }
 
+        [HttpPost]
+        public async Task<IActionResult> Add([FromBody] CreateCourseRequest createCourseRequest)
+        {
+            await courseService.Add(createCourseRequest);
+            return Ok();
+        }
+
+        [HttpGet]
+        public Task<GetListResponse<CourseResponse>> GetAll([FromQuery] PageRequests pageRequests)
+        {
+
+            return courseService.GetAll(pageRequests);
+        }
+}
+}

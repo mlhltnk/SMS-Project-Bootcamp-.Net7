@@ -1,4 +1,6 @@
 ﻿using Business.Dtos.Requests;
+using Business.Dtos.Response;
+using Entities.Concreate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,4 +12,7 @@ namespace Business.Abstracts;
 public interface IStudentService
 {
     Task Add(CreateStudentRequest createStudentRequest);
+    Task<GetListResponse<StudentResponse>> GetAll(PageRequests pageRequests);
+    
 }
+

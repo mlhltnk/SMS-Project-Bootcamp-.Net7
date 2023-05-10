@@ -4,13 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Dtos.Requests;
+namespace Business.Dtos.Response;
 
-public class CreateStudentRequest
+public class StudentResponse
 {
+    public Guid Id { get; set; }
+
     public string? NationalityId { get; set; }
-   
+
     public string Firstname { get; set; }
     public string Lastname { get; set; }
     public DateTime BirthDate { get; set; }
 }
+

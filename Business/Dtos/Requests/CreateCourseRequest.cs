@@ -11,4 +11,5 @@ public class CreateCourseRequest
     public string Name { get; set; }
     public string Shortname { get; set; }
     public int Credit { get; set; }
+
 }

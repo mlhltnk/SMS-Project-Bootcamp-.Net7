@@ -1,6 +1,12 @@
-﻿using Business.Abstracts;
+﻿using AutoMapper;
+using Business.Abstracts;
 using Business.Dtos.Requests;
+using Business.Dtos.Response;
+using Business.ValidationRules;
+using Core.Aspects.Validation;
+using Core.Paging;
 using DataAccess.Abstract;
+using DataAccess.Concrete;
 using Entities.Concreate;
 using System;
 using System.Collections.Generic;
@@ -8,26 +14,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Concreate
+namespace Business.Concreate;
+
+public class CourseManager : ICourseService
 {
-    public class CourseManager : ICourseService
+    private ICourseDal courseDal;
+    private IMapper mapper;
+
+    public CourseManager(ICourseDal courseDal, IMapper mapper)
     {
-        private ICourseDal courseDal;
+        this.courseDal = courseDal;
+        this.mapper = mapper;
+    }
 
-        public CourseManager(ICourseDal courseDal)
-        {
-            this.courseDal = courseDal;
-        }
+    [ValidationAspect(typeof(CreateCourseRequestValidator))]
+    public async Task Add(CreateCourseRequest createCourseRequest)
+    {
+        Course course = mapper.Map<Course>(createCourseRequest);
 
-        public async Task Add(CreateCourseRequest createCourseRequest)
-        {
-            Course course = new Course();
-            course.Credit =createCourseRequest.Credit;
-            course.Name =createCourseRequest.Name;
-            course.Shortname =createCourseRequest.Shortname;
+         await  courseDal.AddAsync(course);
+    }
 
-            await courseDal.AddAsync(course);
+    public async Task<GetListResponse<CourseResponse>> GetAll(PageRequests pageRequests)
+    {
+        IPaginate<Course> result = await courseDal.GetListAsync(index: pageRequests.Index, size: pageRequests.Size);
 
-        }
+        return mapper.Map<GetListResponse<CourseResponse>>(result);
+
     }
 }
+

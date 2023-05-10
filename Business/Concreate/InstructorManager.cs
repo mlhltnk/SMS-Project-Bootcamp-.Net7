@@ -1,6 +1,12 @@
-﻿using Business.Abstracts;
+﻿using AutoMapper;
+using Business.Abstracts;
 using Business.Dtos.Requests;
+using Business.Dtos.Response;
+using Business.ValidationRules;
+using Core.Aspects.Validation;
+using Core.Paging;
 using DataAccess.Abstract;
+using DataAccess.Concrete;
 using Entities.Concreate;
 using System;
 using System.Collections.Generic;
@@ -13,24 +19,23 @@ namespace Business.Concreate;
 public class InstructorManager : IInstructorService
 {
     private IInstructorDal instructorDal;
+    private IMapper mapper;
 
-    public InstructorManager(IInstructorDal instructorDal)
-    {
-        this.instructorDal=instructorDal;
-    }
+    
 
+
+    [ValidationAspect(typeof(CreateInstructorRequestValidator))]
     public async Task Add(CreateInstructorRequest createInstructorRequest)
     {
-      Instructor instructor = new Instructor();
-
-        instructor.Pbik = "3637363";
-        instructor.Firstname = createInstructorRequest.Firstname;
-        instructor.Lastname = createInstructorRequest.Lastname;
-        instructor.BirthDate = createInstructorRequest.BirthDate;
-        instructor.NationalityId = createInstructorRequest.NationalityId;
+      Instructor instructor = mapper.Map<Instructor>(createInstructorRequest);
         await instructorDal.AddAsync(instructor);
-        
+    }
 
+    public async Task<GetListResponse<InstructorResponse>> GetAll(PageRequests pageRequests)
+    {
+        IPaginate<Instructor> result = await instructorDal.GetListAsync(index:pageRequests.Index, size:pageRequests.Size);
+
+        return mapper.Map<GetListResponse<InstructorResponse>>(result);
 
     }
 }
