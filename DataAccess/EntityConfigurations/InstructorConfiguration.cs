@@ -13,20 +13,20 @@ public class InstructorConfiguration : IEntityTypeConfiguration<Instructor>
 {
     public void Configure(EntityTypeBuilder<Instructor> builder)
     {
-        builder.ToTable("Instructor").HasKey(t => t.Id);
-        builder.Property(t => t.Id).HasColumnName("Id").IsRequired();
-        builder.Property(t => t.Pbik).HasColumnName("Pbik").IsRequired();
-        builder.Property(t => t.NationalityId).HasColumnName("NationalityId");
-        builder.Property(t => t.Firstname).HasColumnName("Firstname").IsRequired();
-        builder.Property(t => t.Lastname).HasColumnName("Lastname").IsRequired();
-        builder.Property(t => t.BirthDate).HasColumnName("BirthDate").IsRequired();
-        builder.Property(t => t.CreatedDate).HasColumnName("CreatedDate").IsRequired();
-        builder.Property(t => t.UpdatedDate).HasColumnName("UpdatedDate");
-        builder.Property(t => t.DeletedDate).HasColumnName("DeletedDate");
-        builder.Property(t => t.Status).HasColumnName("Status").IsRequired();
+        builder.ToTable("Instructor").HasKey(u=> u.Id);
+        builder.Property(u => u.Id).HasColumnName("Id").IsRequired();
+        builder.Property(u => u.Pbik).HasColumnName("Pbik").IsRequired();
+        builder.Property(u => u.NationalityId).HasColumnName("NationalityId");
+        builder.Property(u => u.Firstname).HasColumnName("Firstname").IsRequired();
+        builder.Property(u => u.Lastname).HasColumnName("Lastname").IsRequired();
+        builder.Property(u => u.BirthDate).HasColumnName("BirthDate").IsRequired();
+        builder.Property(u => u.CreatedDate).HasColumnName("CreatedDate").IsRequired();
+        builder.Property(u => u.UpdatedDate).HasColumnName("UpdatedDate");
+        builder.Property(u => u.DeletedDate).HasColumnName("DeletedDate");
+        builder.Property(u => u.Status).HasColumnName("Status").IsRequired();
 
         
-        builder.HasQueryFilter(t=>!t.DeletedDate.HasValue);
+        builder.HasQueryFilter(u => !u.DeletedDate.HasValue);
 
     }
 }

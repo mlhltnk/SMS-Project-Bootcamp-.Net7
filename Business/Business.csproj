@@ -7,11 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dtos\Responses\" />
+    <Compile Remove="Dtos\Responses\**" />
+    <EmbeddedResource Remove="Dtos\Responses\**" />
+    <None Remove="Dtos\Responses\**" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Dtos\Response\" />
   </ItemGroup>
 
 </Project>

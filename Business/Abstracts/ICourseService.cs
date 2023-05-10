@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Abstracts;
-
-public interface IInstructorService
+namespace Business.Abstracts
 {
-    Task Add(CreateInstructorRequest createInstructorRequest);
+    public interface ICourseService
+    {
+        Task Add(CreateCourseRequest createCourseRequest);
+    }
 }

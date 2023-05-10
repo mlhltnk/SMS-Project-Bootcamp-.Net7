@@ -6,8 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Business.Abstracts;
-
-public interface IInstructorService
+public  interface ICourseStudentService
 {
-    Task Add(CreateInstructorRequest createInstructorRequest);
+    Task Add(CreateCourseStudentRequest createCourseStudentReqest);
 }

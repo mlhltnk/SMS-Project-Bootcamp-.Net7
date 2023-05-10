@@ -1,5 +1,7 @@
 ﻿using Business.Abstracts;
 using Business.Concreate;
+using DataAccess.Abstract;
+using DataAccess.Concrete;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,7 +16,9 @@ public static class BusinessServiceRegistration
     public static IServiceCollection AddBusinessService(this IServiceCollection services)
     {
         services.AddScoped<IStudentService, StudentManager>()
-            .AddScoped<IInstructorService, InstructorManager>();
+            .AddScoped<IInstructorService, InstructorManager>()
+            .AddScoped<ICourseDal, EfCourseDal>();
+        
         
         return services;
     }

@@ -10,7 +10,7 @@ namespace Entities.Concreate;
 
 public class Student: Entity<Guid>
 {
-    public string StundentNumber { get; set; }
+    public string StudentNumber { get; set; }
     public string? NationalityId { get; set; }
     public string Firstname { get; set; }
     public string Lastname { get; set; }
@@ -29,7 +29,7 @@ public class Student: Entity<Guid>
         string lastName, DateTime BirtDate, bool status) : this()
     {
        Id = id;
-        StundentNumber = studentNumber;
+        StudentNumber = studentNumber;
         NationalityId = nationalityId;
         Firstname = firstName;
         Lastname = lastName;

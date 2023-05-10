@@ -13,19 +13,18 @@ namespace DataAccess.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Course> builder)
         {
-            builder.ToTable("Courses").HasKey(t => t.Id);
-            builder.Property(t => t.Id).HasColumnName("Id").IsRequired();
-            builder.Property(t => t.Shortname).HasColumnName("Shortname").IsRequired();
-            builder.Property(t => t.Name).HasColumnName("Name").IsRequired();
-            builder.Property(t => t.Credit).HasColumnName("Credit").IsRequired();
-            builder.Property(t => t.CreatedDate).HasColumnName("CreatedDate").IsRequired();
-            builder.Property(t => t.UpdatedDate).HasColumnName("UpdatedDate");
-            builder.Property(t => t.DeletedDate).HasColumnName("DeletedDate");
+            builder.ToTable("Courses").HasKey(u => u.Id);
+            builder.Property(u => u.Id).HasColumnName("Id").IsRequired();
+            builder.Property(u => u.Shortname).HasColumnName("Shortname").IsRequired();
+            builder.Property(u => u.Name).HasColumnName("Name").IsRequired();
+            builder.Property(u => u.Credit).HasColumnName("Credit").IsRequired();
+            builder.Property(u => u.CreatedDate).HasColumnName("CreatedDate").IsRequired();
+            builder.Property(u => u.UpdatedDate).HasColumnName("UpdatedDate");
+            builder.Property(u => u.DeletedDate).HasColumnName("DeletedDate");
 
-            builder.HasMany(t => t.CourseStudents);
-
+            builder.HasMany(u => u.CourseStudents);
          
-            builder.HasQueryFilter(t => !t.DeletedDate.HasValue);
+            builder.HasQueryFilter(u => !u.DeletedDate.HasValue);
 
         }
     }
