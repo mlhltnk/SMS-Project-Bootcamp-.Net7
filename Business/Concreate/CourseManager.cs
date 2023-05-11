@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using AutoMapper;
 using Business.Abstracts;
 using Business.Dtos.Requests;
@@ -7,6 +8,11 @@ using Core.Aspects.Validation;
 using Core.Paging;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
+=======
+﻿using Business.Abstracts;
+using Business.Dtos.Requests;
+using DataAccess.Abstract;
+>>>>>>> 7d9f326c1951c01f3ffeed197666975fde626a29
 using Entities.Concreate;
 using System;
 using System.Collections.Generic;
@@ -19,6 +25,7 @@ namespace Business.Concreate;
 public class CourseManager : ICourseService
 {
     private ICourseDal courseDal;
+<<<<<<< HEAD
     private IMapper mapper;
 
     public CourseManager(ICourseDal courseDal, IMapper mapper)
@@ -42,5 +49,23 @@ public class CourseManager : ICourseService
         return mapper.Map<GetListResponse<CourseResponse>>(result);
 
     }
+=======
+
+    public CourseManager(ICourseDal courseDal)
+    {
+        this.courseDal = courseDal;
+    }
+
+    public async Task Add(CreateCourseRequest createCourseRequest)
+    {
+        Course course =new Course();
+
+        course.Name = createCourseRequest.Name;
+        course.Shortname = createCourseRequest.Shortname;
+        course.Credit = createCourseRequest.Credit;
+
+         await  courseDal.AddAsync(course);
+    }
+>>>>>>> 7d9f326c1951c01f3ffeed197666975fde626a29
 }
 

@@ -1,6 +1,9 @@
 ﻿using Business.Abstracts;
 using Business.Dtos.Requests;
+<<<<<<< HEAD
 using Business.Dtos.Response;
+=======
+>>>>>>> 7d9f326c1951c01f3ffeed197666975fde626a29
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,7 +16,10 @@ namespace API.Controllers
 
         private ICourseService courseService;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7d9f326c1951c01f3ffeed197666975fde626a29
         public CoursesController(ICourseService courseService)
         {
             this.courseService = courseService;
@@ -25,6 +31,7 @@ namespace API.Controllers
             await courseService.Add(createCourseRequest);
             return Ok();
         }
+<<<<<<< HEAD
 
         [HttpGet]
         public Task<GetListResponse<CourseResponse>> GetAll([FromQuery] PageRequests pageRequests)
@@ -33,4 +40,7 @@ namespace API.Controllers
             return courseService.GetAll(pageRequests);
         }
 }
+=======
+    }
+>>>>>>> 7d9f326c1951c01f3ffeed197666975fde626a29
 }

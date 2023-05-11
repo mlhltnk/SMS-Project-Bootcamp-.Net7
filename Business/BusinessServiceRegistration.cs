@@ -20,10 +20,14 @@ public static class BusinessServiceRegistration
             .AddScoped<ICourseService, CourseManager>()
             .AddScoped<ICourseStudentService, CourseStudentManager>()
             ;
+<<<<<<< HEAD
 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
+=======
+        
+>>>>>>> 7d9f326c1951c01f3ffeed197666975fde626a29
         return services;
     }
 }

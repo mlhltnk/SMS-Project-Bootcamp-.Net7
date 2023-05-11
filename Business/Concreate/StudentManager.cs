@@ -35,7 +35,15 @@ namespace Business.Concreate
                 
                 
             //todo : regex yapılacak
+<<<<<<< HEAD
             
+=======
+            student.StudentNumber = "20231234567";
+            student.Firstname = createStudentRequest.Firstname;
+            student.Lastname = createStudentRequest.Lastname;
+            student.BirthDate = createStudentRequest.BirthDate;
+            student.NationalityId= createStudentRequest.NationalityId;
+>>>>>>> 7d9f326c1951c01f3ffeed197666975fde626a29
             await studentdal.AddAsync(student);
         }
 
